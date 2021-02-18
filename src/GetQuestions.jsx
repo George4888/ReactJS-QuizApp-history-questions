@@ -25,10 +25,10 @@ const GetQuestions = () => {
                 <h1 key={question.correct_answer}>{question.question}</h1>
                 </div>
                 <div className="answer">
-                    <p>{question.incorrect_answers}</p>
+                    <p>{question.incorrect_answers[0]}</p>
                     <p>{question.correct_answer}</p>
-                    <p>{question.incorrect_answers}</p>
-                    <p>{question.incorrect_answers}</p>
+                    <p>{question.incorrect_answers[1]}</p>
+                    <p>{question.incorrect_answers[2]}</p>
                 </div>
                 </>
             ))}
