@@ -15,9 +15,13 @@ function App() {
     );
   }, []);
 
+  const handleAnswer = (answer) => {
+    console.log("ok");
+  };
+
   return questions.length > 0 ? (
     <div className="App">
-      <Questions data={questions[0]} />
+      <Questions data={questions[0]} handleAnswer={handleAnswer} />
     </div>
   ) : (
     <h1>Loading...</h1>

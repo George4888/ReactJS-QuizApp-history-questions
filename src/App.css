@@ -5,3 +5,7 @@
   padding: 0;
   font-family: "Prompt", sans-serif;
 }
+
+.correct {
+  color: red;
+}
