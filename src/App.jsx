@@ -18,18 +18,18 @@ function App() {
     );
   }, []);
 
+  // check for answer, show another answer
   const handleAnswer = (answer) => {
     const newIndex = currentIndex + 1;
     setCurrentIndex(newIndex);
-    // check for answer
+    // Increase score
     if (answer === questions[currentIndex].correct_answer) {
-      // Increase score
       setScore(score + 1);
     }
+    // check for next question
     if (newIndex >= questions.length) {
       setQuestionsEnded(true);
     }
-    // show another answer
   };
 
   return questionsEnded ? (
