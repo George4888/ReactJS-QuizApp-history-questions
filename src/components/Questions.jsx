@@ -19,9 +19,11 @@ const Questions = ({
         {shuffledAnswers.map((answer, idx) => {
           return (
             <>
-              <button
+              <p
                 key={idx}
-                className={`${correct_answer === answer ? "correct" : ""}`}
+                className={`${
+                  correct_answer === answer ? "correct" : "normal"
+                }`}
                 onClick={() => handleAnswer(answer)}
                 dangerouslySetInnerHTML={{ __html: answer }}
               />

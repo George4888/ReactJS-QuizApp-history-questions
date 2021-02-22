@@ -33,12 +33,12 @@ function App() {
   };
 
   return questionsEnded ? (
-    <>
+    <div className="App">
       <h1>No more questions left!</h1>
       <h2>
         Your score was {score} out of {questions.length}
       </h2>
-    </>
+    </div>
   ) : questions.length > 0 ? (
     <div className="App">
       <div className="nrOfQuestions">
