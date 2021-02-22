@@ -3,11 +3,11 @@ import Questions from "./components/Questions";
 import "./App.css";
 
 function App() {
-  const API = "https://opentdb.com/api.php?amount=25&category=23&type=multiple";
+  const API = "https://opentdb.com/api.php?amount=10&category=23&type=multiple";
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
-  const [questionsEnded, setQuestionsEnded] = useState(false);
+  const [showAnswers, setShowAnswers] = useState(false);
 
   useEffect(() => {
     fetch(API).then((res) =>
@@ -20,12 +20,19 @@ function App() {
 
   // check for answer, show another question
   const handleAnswer = (answer) => {
+    if (!showAnswers) {
+      // Increase score
+      if (answer === questions[currentIndex].correct_answer) {
+        setScore(score + 1);
+      }
+      setShowAnswers(true);
+    }
+  };
+
+  const nextQuestion = () => {
+    setShowAnswers(false);
     const newIndex = currentIndex + 1;
     setCurrentIndex(newIndex);
-    // Increase score
-    if (answer === questions[currentIndex].correct_answer) {
-      setScore(score + 1);
-    }
   };
 
   return questions.length > 0 ? (
@@ -46,13 +53,17 @@ function App() {
           </div>
           <Questions
             data={questions[currentIndex]}
+            showAnswers={showAnswers}
             handleAnswer={handleAnswer}
+            nextQuestion={nextQuestion}
           />
         </>
       )}
     </div>
   ) : (
-    <h1>Loading...</h1>
+    <div className="App">
+      <h1>Loading...</h1>
+    </div>
   );
 }
 
