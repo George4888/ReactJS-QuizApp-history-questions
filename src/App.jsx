@@ -33,11 +33,19 @@ function App() {
   };
 
   return questionsEnded ? (
-    <h1>
-      Your score was {score} out of {questions.length}
-    </h1>
+    <>
+      <h1>No more questions left!</h1>
+      <h2>
+        Your score was {score} out of {questions.length}
+      </h2>
+    </>
   ) : questions.length > 0 ? (
     <div className="App">
+      <div className="nrOfQuestions">
+        <h3>
+          {currentIndex} of {questions.length}
+        </h3>
+      </div>
       <Questions data={questions[currentIndex]} handleAnswer={handleAnswer} />
     </div>
   ) : (

@@ -16,10 +16,11 @@ const Questions = ({
         <h3 dangerouslySetInnerHTML={{ __html: question }} />
       </div>
       <div className="answers">
-        {shuffledAnswers.map((answer) => {
+        {shuffledAnswers.map((answer, idx) => {
           return (
             <>
               <button
+                key={idx}
                 className={`${correct_answer === answer ? "correct" : ""}`}
                 onClick={() => handleAnswer(answer)}
                 dangerouslySetInnerHTML={{ __html: answer }}
