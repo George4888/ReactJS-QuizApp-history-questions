@@ -12,7 +12,8 @@ const Questions = ({
   return (
     <>
       <div className="question">
-        <h2>Category: {category}</h2>
+        <h2>{category}</h2>
+        <br />
         <h3 dangerouslySetInnerHTML={{ __html: question }} />
       </div>
       <div className="answers">
@@ -20,6 +21,7 @@ const Questions = ({
           return (
             <>
               <p
+                className="btn"
                 key={idx}
                 className={`${
                   correct_answer === answer ? "correct" : "normal"

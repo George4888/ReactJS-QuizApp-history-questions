@@ -6,6 +6,16 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.btn {
+  margin: 10px;
+  padding: 15px;
+  color: #fdf0d5;
+  background: #669bbc;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+}
+
 .normal {
   margin: 10px;
   padding: 15px;
@@ -13,6 +23,7 @@
   background: #669bbc;
   box-sizing: border-box;
   cursor: pointer;
+  user-select: none;
 }
 
 .correct {
