@@ -13,7 +13,15 @@ function App() {
     fetch(API).then((res) =>
       res.json().then((data) => {
         console.log(data.results);
-        setQuestions(data.results);
+        const questions = data.results.map((question) => ({
+          ...question,
+          // create array with correct and incorrect answers and shuffle
+          answers: [
+            question.correct_answer,
+            ...question.incorrect_answers,
+          ].sort(() => Math.random() - 0.5),
+        }));
+        setQuestions(questions);
       })
     );
   }, []);
@@ -31,8 +39,10 @@ function App() {
 
   const nextQuestion = () => {
     setShowAnswers(false);
-    const newIndex = currentIndex + 1;
-    setCurrentIndex(newIndex);
+    if (showAnswers) {
+      const newIndex = currentIndex + 1;
+      setCurrentIndex(newIndex);
+    }
   };
 
   return questions.length > 0 ? (

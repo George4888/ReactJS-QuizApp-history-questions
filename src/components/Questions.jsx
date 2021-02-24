@@ -4,13 +4,8 @@ const Questions = ({
   handleAnswer,
   showAnswers,
   nextQuestion,
-  data: { question, category, correct_answer, incorrect_answers },
+  data: { question, category, correct_answer, answers },
 }) => {
-  // Place all answers in array, Shuffle the answers
-  const shuffledAnswers = [correct_answer, ...incorrect_answers].sort(
-    () => Math.random() - 0.5
-  );
-
   return (
     <>
       <div className="question">
@@ -19,7 +14,8 @@ const Questions = ({
         <h3 dangerouslySetInnerHTML={{ __html: question }} />
       </div>
       <div className="answers">
-        {shuffledAnswers.map((answer, idx) => {
+        {answers.map((answer, idx) => {
+          console.log(idx);
           const validationColor = showAnswers
             ? answer === correct_answer
               ? "ok"
