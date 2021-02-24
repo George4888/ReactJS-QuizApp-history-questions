@@ -53,6 +53,9 @@ function App() {
           <h2>
             Your score was {score} out of {questions.length}
           </h2>
+          <p className="normal" onClick={() => window.location.reload(false)}>
+            Start new Quiz
+          </p>
         </>
       ) : (
         <>

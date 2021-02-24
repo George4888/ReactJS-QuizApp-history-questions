@@ -15,7 +15,6 @@ const Questions = ({
       </div>
       <div className="answers">
         {answers.map((answer, idx) => {
-          console.log(idx);
           const validationColor = showAnswers
             ? answer === correct_answer
               ? "ok"
